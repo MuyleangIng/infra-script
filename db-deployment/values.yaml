@@ -1,0 +1,19 @@
+appName: "$helmChartName"
+replicaset: 1
+image: postgres
+tag: 16.1
+containerPort: 5432
+nodePort: "$NodePort"
+domain: "$domainName"
+secret:
+  tls: "$helmChartName-secret_tls"
+env:
+  database:
+    DBname: POSTGRES_DB
+    db: "$DB_NAME"
+    DBuser: POSTGRES_USER
+    username: "$DB_USERNAME"
+    DBpassword: POSTGRES_PASSWORD
+    password: "$DB_PASSWORD"
+chart:
+  name: "$helmChartName"

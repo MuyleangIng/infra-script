@@ -1,0 +1,17 @@
+appName: $helmChartName
+replicaset: 1
+image: mongo
+tag: 4.4
+containerPort: 27017
+nodePort: "$NodePort"
+domain: "$domainName"
+secret:
+  tls: "$helmChartName-secret_tls"
+env:
+  database:
+    DBuser: MONGO_INITDB_ROOT_USERNAME
+    username: "$DB_USERNAME"
+    DBpassword: MONGO_INITDB_ROOT_PASSWORD
+    password: "$DB_PASSWORD"
+chart:
+  name: "$helmChartName"    
